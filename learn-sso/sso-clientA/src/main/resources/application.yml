@@ -1,0 +1,16 @@
+security:
+  oauth2:
+    client:
+      clientId: clientA
+      clientSecret: clientAsecret
+      #配置应用A需要认证时候,认证服务器地址,应用跳转进行认证的url
+      user-authorization-uri: http://127.0.0.1:9999/server/oauth/authorize
+      #配置应用A需要认证完成之后,认证服务器返回的获取token的地址
+      access-token-uri: http://127.0.0.1:9999/server/oauth/token
+    resource:
+      jwt:
+        # 用户获取到jwt后需要使用秘钥解析jwt时候的秘钥生成地址
+        key-uri: http://127.0.0.1:9999/server/oauth/token_key
+server:
+  port: 7777
+  context-path: /clientA
